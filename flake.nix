@@ -26,8 +26,11 @@
 	    export IN_NIX_DEVELOP_SHELL=1
 
             export OPAMROOT=$NIX_BUILD_TOP/.opam
+	    # unsetting the below env var is required for fixing a thorny issue with `num` install
+	    # similar issue & solution thread: https://github.com/ocaml/Zarith/issues/136 
+	    unset OCAMLFIND_DESTDIR
+
 	    opam init --bare --disable-sandboxing -y --shell-setup -vv
-	    eval $(opam env)
 	    opam option -global depext=false
 	    OCAML_VERSION=$(ocaml --version | awk '{printf $5}')
 	    opam switch create $OCAML_VERSION
