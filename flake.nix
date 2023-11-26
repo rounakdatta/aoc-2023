@@ -1,5 +1,5 @@
 {
-  description = "Advent of Code 2023 in OCaml";
+  description = "AOC OCaml programming environment presented to you by Nix";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

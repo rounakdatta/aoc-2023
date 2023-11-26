@@ -1,0 +1,3 @@
+(test
+  (name day00_test)
+  (libraries ounit2 day00 utils))
