@@ -1,6 +1,6 @@
-let test_with_assertion solver (day: int) (part: int) =
-        let input_filename = Printf.sprintf "../inputs/day%02d_%d.txt" day part in
-        let expected_output_filename = Printf.sprintf "../outputs/day%02d_%d.txt" day part in
+let test_sample_with_assertion solver (day: int) (part: int) =
+        let input_filename = Printf.sprintf "../inputs/day%02d_%d_sample.txt" day part in
+        let expected_output_filename = Printf.sprintf "../outputs/day%02d_%d_sample.txt" day part in
         let expected_output = Utils.read_output_file expected_output_filename in
 
         let computed_output = solver input_filename in
@@ -20,10 +20,14 @@ let test_with_result solver (day: int) (part: int) =
 
 let () =
         (* day mic testing *)
-        test_with_assertion Day00.solve 0 0;
+        test_sample_with_assertion Day00.solve 0 1;
         test_with_result Day00.solve 0 1;
 
-        (* day 1 *)
-        test_with_assertion Day01.solve 1 0;
-        test_with_result Day01.solve 1 1;
+        (* day 1 part 1*)
+        test_sample_with_assertion Day01.solve_1 1 1;
+        test_with_result Day01.solve_1 1 1;
+
+        (* day 2 part 2*)
+        test_sample_with_assertion Day01.solve_2 1 2;
+        test_with_result Day01.solve_2 1 2;
 ;;
