@@ -1,0 +1,4 @@
+(library
+ (name day02)
+ (modules Day02)
+ (libraries utils))
