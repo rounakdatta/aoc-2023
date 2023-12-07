@@ -10,7 +10,7 @@ let test_sample_with_assertion solver (day: int) (part: int) =
 ;;
 
 let test_with_result solver (day: int) (part: int) =
-        let input_filename = Printf.sprintf "../inputs/day%02d_%d.txt" day part in
+        let input_filename = Printf.sprintf "../inputs/day%02d.txt" day in
         let computed_output = solver input_filename in
         Printf.printf "Output for day %d part %d: %d\n" day part computed_output;
 ;;
@@ -36,4 +36,8 @@ let () =
         (* day 2 part 1*)
         test_sample_with_assertion Day02.solve_1 2 1;
         test_with_result Day02.solve_1 2 1;
+        
+        (* day 2 part 2 *)
+        test_sample_with_assertion Day02.solve_2 2 2;
+        test_with_result Day02.solve_2 2 2;
 ;;

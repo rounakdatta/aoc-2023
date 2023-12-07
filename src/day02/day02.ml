@@ -56,4 +56,17 @@ let solve_1 filename =
     ) pick_counts_indexed in
   
   List.fold_left (fun addup (i, _) -> addup + 1 + i) 0 valid_games
+
+let solve_2 filename =
+  let input_lines = Utils.read_input filename in
+  let pick_counts = List.map transform_to_game_format input_lines in
+
+  let cube_set_powers = List.map (fun list_of_picks ->
+        List.fold_left (fun (red, green, blue) (r_max, g_max, b_max) ->
+            (max red r_max, max green g_max, max blue b_max)
+          ) (0, 0, 0) list_of_picks
+      ) pick_counts
+      |> List.map (fun (red, green, blue) -> red * green * blue) in
+
+    List.fold_left (fun addup x -> addup + x) 0 cube_set_powers
   
